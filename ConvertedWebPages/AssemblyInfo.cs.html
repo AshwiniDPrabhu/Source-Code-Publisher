@@ -1,0 +1,80 @@
+<DOCTYPE !HTML>
+<html>
+  <head>
+    <Title>AssemblyInfo.cs</Title>
+    <style>
+      body {
+        padding:15px 40px;
+        font-family: Consolas;
+        font-size: 1.25em;
+        font-weight: normal;
+      }
+      </style>
+      <script src="../script.js"></script>
+  </head>
+
+  <body>
+<label><input type="checkbox" id="function-button" value="hidefuncs" checked="true" onclick="toggleVisibilityFunction('function')">Functions</label><br>
+<label><input type="checkbox" id="class-button" value="hideclass" checked="true" onclick="toggleVisibilityClass('class')">Classes</label><br>
+<label><input type="checkbox" id="comments-button" value="hidecomms" checked="true" onclick ="toggleVisibilityComments('comments')">Comments</label><br>
+    <h3>Dependencies: 
+      <a href=".html"></a>
+    </h3>    <pre>
+﻿using System.Reflection;
+using System.Resources;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Windows;
+
+<div class= "comments">// General Information about an assembly is controlled through the following</div>
+<div class= "comments">// set of attributes. Change these attribute values to modify the information</div>
+<div class= "comments">// associated with an assembly.</div>
+[assembly: AssemblyTitle("WpfApp1")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("WpfApp1")]
+[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+
+<div class= "comments">// Setting ComVisible to false makes the types in this assembly not visible</div>
+<div class= "comments">// to COM components.  If you need to access a type in this assembly from</div>
+<div class= "comments">// COM, set the ComVisible attribute to true on that type.</div>
+[assembly: ComVisible(false)]
+
+<div class= "comments">//In order to begin building localizable applications, set</div>
+<div class= "comments">//&lt;UICulture&gt;CultureYouAreCodingWith&lt;/UICulture&gt; in your .csproj file</div>
+<div class= "comments">//inside a &lt;PropertyGroup&gt;.  For example, if you are using US english</div>
+<div class= "comments">//in your source files, set the &lt;UICulture&gt; to en-US.  Then uncomment</div>
+<div class= "comments">//the NeutralResourceLanguage attribute below.  Update the "en-US" in</div>
+<div class= "comments">//the line below to match the UICulture setting in the project file.</div>
+
+<div class= "comments">//[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]</div>
+
+
+[assembly: ThemeInfo(
+    ResourceDictionaryLocation.None, <div class= "comments">//where theme specific resource dictionaries are located</div>
+                                     <div class= "comments">//(used if a resource is not found in the page,</div>
+                                     <div class= "comments">// or application resource dictionaries)</div>
+    ResourceDictionaryLocation.SourceAssembly <div class= "comments">//where the generic resource dictionary is located</div>
+                                              <div class= "comments">//(used if a resource is not found in the page,</div>
+                                              <div class= "comments">// app, or any theme specific resource dictionaries)</div>
+)]
+
+
+<div class= "comments">// Version information for an assembly consists of the following four values:</div>
+<div class= "comments">//</div>
+<div class= "comments">//      Major Version</div>
+<div class= "comments">//      Minor Version</div>
+<div class= "comments">//      Build Number</div>
+<div class= "comments">//      Revision</div>
+<div class= "comments">//</div>
+<div class= "comments">// You can specify all the values or you can default the Build and Revision Numbers</div>
+<div class= "comments">// by using the '*' as shown below:</div>
+<div class= "comments">// [assembly: AssemblyVersion("1.0.*")]</div>
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
+    </pre>
+  </body>
+</html>

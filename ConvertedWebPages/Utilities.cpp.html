@@ -1,0 +1,209 @@
+<DOCTYPE !HTML>
+<html>
+  <head>
+    <Title>Utilities.cpp</Title>
+    <style>
+      body {
+        padding:15px 40px;
+        font-family: Consolas;
+        font-size: 1.25em;
+        font-weight: normal;
+      }
+      </style>
+      <script src="../script.js"></script>
+  </head>
+
+  <body>
+<label><input type="checkbox" id="function-button" value="hidefuncs" checked="true" onclick="toggleVisibilityFunction('function')">Functions</label><br>
+<label><input type="checkbox" id="class-button" value="hideclass" checked="true" onclick="toggleVisibilityClass('class')">Classes</label><br>
+<label><input type="checkbox" id="comments-button" value="hidecomms" checked="true" onclick ="toggleVisibilityComments('comments')">Comments</label><br>
+    <h3>Dependencies: 
+      <a href=" Utilities.h.html"> Utilities.h</a>
+    </h3>    <pre>
+<div class= "comments">///////////////////////////////////////////////////////////////////////</div>
+<div class= "comments">// Utilities.cpp - small, generally usefule, helper classes          //</div>
+<div class= "comments">// ver 1.1                                                           //</div>
+<div class= "comments">// Language:    C++, Visual Studio 2015                              //</div>
+<div class= "comments">// Application: Most Projects, CSE687 - Object Oriented Design       //</div>
+<div class= "comments">// Author:      Jim Fawcett, Syracuse University, CST 4-187          //</div>
+<div class= "comments">//              jfawcett@twcny.rr.com                                //</div>
+<div class= "comments">///////////////////////////////////////////////////////////////////////</div>
+
+#include &lt;cctype&gt;
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+#include &lt;cctype&gt;
+#include &lt;locale&gt;
+#include "Utilities.h"
+
+using namespace Utilities;
+
+<div class= "comments">/////////////////////////////////////////////////////////////////////</div>
+<div class= "comments">// next two functions show how to create alias for function name</div>
+
+std::function&lt;void(const std::string&)&gt; Title =
+  [](auto src) <button class="function-button" id="function-23-button" onclick = toggleVisibilityByID('function-23')>-</button><div id="function-23" class= "function">{ StringHelper::Title(src, '='); };</div>
+
+std::function&lt;void(const std::string&)&gt; title =
+  [](auto src) <button class="function-button" id="function-26-button" onclick = toggleVisibilityByID('function-26')>-</button><div id="function-26" class= "function">{ StringHelper::Title(src, '-'); };</div>
+
+<div class= "comments">//----&lt; write major title to console &gt;-------------------------------</div>
+
+void StringHelper::title(const std::string& src)
+<button class="function-button" id="function-31-button" onclick = toggleVisibilityByID('function-31')>-</button><div id="function-31" class= "function">{
+  std::cout &lt;&lt; "\n  " &lt;&lt; src;
+  std::cout &lt;&lt; "\n " &lt;&lt; std::string(src.size() + 2, '-');
+}</div>
+<div class= "comments">//----&lt; write minor title to console &gt;-------------------------------</div>
+
+void StringHelper::Title(const std::string& src, char underline)
+<button class="function-button" id="function-38-button" onclick = toggleVisibilityByID('function-38')>-</button><div id="function-38" class= "function">{
+  std::cout &lt;&lt; "\n  " &lt;&lt; src;
+  std::cout &lt;&lt; "\n " &lt;&lt; std::string(src.size() + 2, underline);
+}</div>
+<div class= "comments">//----&lt; convert comma separated list into vector&lt;std::string&gt; &gt;------</div>
+<div class= "comments">/*
+*  - also works for newline separated list
+*/</div>
+std::vector&lt;std::string&gt; StringHelper::split(const std::string& src)
+<button class="function-button" id="function-47-button" onclick = toggleVisibilityByID('function-47')>-</button><div id="function-47" class= "function">{
+  std::vector&lt;std::string&gt; accum;
+  std::string temp;
+  size_t index = 0;
+  do
+  {
+    while ((src[index] == ',' || src[index] == '\n') && index &lt; src.length())
+    {
+      ++index;
+      if (temp.size() &gt; 0)
+      {
+        accum.push_back(temp);
+        temp.clear();
+      }
+    }
+    if(src[index] != '\0')
+      temp += src[index];
+  } while (index++ &lt; src.size());
+  if(temp.size() &gt; 0)
+    accum.push_back(temp);
+  return accum;
+}</div>
+<div class= "comments">//----&lt; remove leading and trailing whitespace &gt;---------------------</div>
+
+std::string StringHelper::trim(const std::string& src)
+<button class="function-button" id="function-72-button" onclick = toggleVisibilityByID('function-72')>-</button><div id="function-72" class= "function">{
+  std::locale loc;
+  std::string trimmed = src;
+  size_t first = 0;
+  while (true)
+  {
+    if (std::isspace(trimmed[first], loc))
+      ++first;
+    else
+      break;
+  }
+  size_t last = trimmed.size() - 1;
+  while (true)
+  {
+    if (std::isspace(trimmed[last], loc) && last &gt; 0)
+      --last;
+    else
+      break;
+
+  }
+  return trimmed.substr(first, last-first+1);
+}</div>
+<div class= "comments">//----&lt; wrap string in lines &gt;---------------------------------------</div>
+
+std::string StringHelper::addHeaderAndFooterLines(const std::string& src)
+<button class="function-button" id="function-97-button" onclick = toggleVisibilityByID('function-97')>-</button><div id="function-97" class= "function">{
+  std::string line = "------------------------------";
+  return line + "\n" + src + "\n" + line + "\n";
+}</div>
+<div class= "comments">//----&lt; takes any pointer type and displays as a dec string &gt;--------</div>
+
+std::string Utilities::ToDecAddressString(size_t address)
+<button class="function-button" id="function-104-button" onclick = toggleVisibilityByID('function-104')>-</button><div id="function-104" class= "function">{
+  std::ostringstream oss;
+  oss &lt;&lt; std::uppercase &lt;&lt; std::dec &lt;&lt; address;
+  return oss.str();
+}</div>
+<div class= "comments">//----&lt; takes any pointer type and displays as a hex string &gt;--------</div>
+
+std::string Utilities::ToHexAddressString(size_t address)
+<button class="function-button" id="function-112-button" onclick = toggleVisibilityByID('function-112')>-</button><div id="function-112" class= "function">{
+  std::ostringstream oss;
+  oss &lt;&lt; std::uppercase &lt;&lt; " (0x" &lt;&lt; std::hex &lt;&lt; address &lt;&lt; ")";
+  return oss.str();
+}</div>
+<div class= "comments">//----&lt; write newline to console &gt;-----------------------------------</div>
+
+void Utilities::putline()
+<button class="function-button" id="function-120-button" onclick = toggleVisibilityByID('function-120')>-</button><div id="function-120" class= "function">{
+  std::cout &lt;&lt; "\n";
+}</div>
+<div class= "comments">//----&lt; test stub &gt;--------------------------------------------------</div>
+
+#ifdef TEST_UTILITIES
+
+int main()
+<button class="function-button" id="function-128-button" onclick = toggleVisibilityByID('function-128')>-</button><div id="function-128" class= "function">{
+  Title("Testing Utilities Package");
+  putline();
+
+  title("test StringHelper::trim");
+
+  std::string test1 = "  12345 ";
+  std::cout &lt;&lt; "\n  test string = \"" &lt;&lt; test1 &lt;&lt; "\"";
+
+  test1 = StringHelper::trim(test1);
+  std::cout &lt;&lt; "\n  test string = \"" &lt;&lt; test1 &lt;&lt; "\"";
+  putline();
+
+  title("test StringHelper::split(std::string)");
+
+  std::string test = "\na:b\naa:bb\naaa:bbb";
+  std::cout &lt;&lt; "\n  test string = " &lt;&lt; test;
+  <div class= "comments">//test = "a, \n, bc, de, efg, i, j k lm nopq rst";</div>
+  <div class= "comments">//std::cout &lt;&lt; "\n  test string = " &lt;&lt; test;</div>
+  
+  std::vector&lt;std::string&gt; result = StringHelper::split(test);
+  
+  std::cout &lt;&lt; "\n";
+  for (auto item : result)
+  {
+    if (item == "\n")
+      std::cout &lt;&lt; "\n  " &lt;&lt; "newline";
+    else
+      std::cout &lt;&lt; "\n  " &lt;&lt; item;
+  }
+  std::cout &lt;&lt; "\n";
+
+  title("test addHeaderAndFooterLines(const std::string&)");
+  std::string test4 = "0123456789";
+  std::cout &lt;&lt; "\n" &lt;&lt; StringHelper::addHeaderAndFooterLines(test4);
+
+  title("test std::string Converter&lt;T&gt;::toString(T)");
+
+  std::string conv1 = Converter&lt;double&gt;::toString(3.1415927);
+  std::string conv2 = Converter&lt;int&gt;::toString(73);
+  std::string conv3 = Converter&lt;std::string&gt;::toString("a_test_string plus more");
+
+  std::cout &lt;&lt; "\n  Converting from values to strings: ";
+  std::cout &lt;&lt; conv1 &lt;&lt; ", " &lt;&lt; conv2 &lt;&lt; ", " &lt;&lt; conv3;
+  putline();
+
+  title("test T Converter&lt;T&gt;::toValue(std::string)");
+
+  std::cout &lt;&lt; "\n  Converting from strings to values: ";
+  std::cout &lt;&lt; Converter&lt;double&gt;::toValue(conv1) &lt;&lt; ", ";
+  std::cout &lt;&lt; Converter&lt;int&gt;::toValue(conv2) &lt;&lt; ", ";
+  std::cout &lt;&lt; Converter&lt;std::string&gt;::toValue(conv3);
+
+  std::cout &lt;&lt; "\n\n";
+  return 0;
+}</div>
+#endif
+    </pre>
+  </body>
+</html>

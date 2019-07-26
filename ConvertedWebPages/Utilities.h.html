@@ -1,0 +1,139 @@
+<DOCTYPE !HTML>
+<html>
+  <head>
+    <Title>Utilities.h</Title>
+    <style>
+      body {
+        padding:15px 40px;
+        font-family: Consolas;
+        font-size: 1.25em;
+        font-weight: normal;
+      }
+      </style>
+      <script src="../script.js"></script>
+  </head>
+
+  <body>
+<label><input type="checkbox" id="function-button" value="hidefuncs" checked="true" onclick="toggleVisibilityFunction('function')">Functions</label><br>
+<label><input type="checkbox" id="class-button" value="hideclass" checked="true" onclick="toggleVisibilityClass('class')">Classes</label><br>
+<label><input type="checkbox" id="comments-button" value="hidecomms" checked="true" onclick ="toggleVisibilityComments('comments')">Comments</label><br>
+    <h3>Dependencies: 
+      <a href=".html"></a>
+    </h3>    <pre>
+#ifndef UTILITIES_H
+#define UTILITIES_H
+<div class= "comments">///////////////////////////////////////////////////////////////////////</div>
+<div class= "comments">// Utilities.h - small, generally usefule, helper classes            //</div>
+<div class= "comments">// ver 1.1                                                           //</div>
+<div class= "comments">// Language:    C++, Visual Studio 2015                              //</div>
+<div class= "comments">// Application: Most Projects, CSE687 - Object Oriented Design       //</div>
+<div class= "comments">// Author:      Jim Fawcett, Syracuse University, CST 4-187          //</div>
+<div class= "comments">//              jfawcett@twcny.rr.com                                //</div>
+<div class= "comments">///////////////////////////////////////////////////////////////////////</div>
+<div class= "comments">/*
+* Package Operations:
+* -------------------
+* This package provides classes StringHelper and Converter and a global
+* function putline().  This class will be extended continuously for 
+* awhile to provide convenience functions for general C++ applications.
+*
+* Build Process:
+* --------------
+* Required Files: Utilities.h, Utilities.cpp
+*
+* Build Command: devenv Utilities.sln /rebuild debug
+*
+* Maintenance History:
+* --------------------
+* ver 1.1 : 06 Feb 2015
+* - fixed bug in split which turns a comma separated string into
+*   a vector of tokens.
+* - added comments
+* ver 1.0 : 05 Feb 2016
+* - first release
+*
+* Planned Additions and Changes:
+* ------------------------------
+* - none yet
+*/</div>
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+#include &lt;functional&gt;
+
+namespace Utilities
+{
+  <div class= "comments">///////////////////////////////////////////////////////////////////</div>
+  <div class= "comments">// Utilities for std::string</div>
+  <div class= "comments">// - split accepts comma separated list of items and returns</div>
+  <div class= "comments">//   std::vector containing each item</div>
+  <div class= "comments">// - Title writes src string to console with underline of '=' chars</div>
+  <div class= "comments">// - title writes src string to console with underline of '-' chars</div>
+
+  class StringHelper
+  <button class="class-button" id="class-53-button" onclick = toggleVisibilityByID('class-53')>-</button><div id="class-53" class= "class">{
+  public:
+    static std::vector&lt;std::string&gt; split(const std::string& src);
+    static void Title(const std::string& src, char underline = '=');
+    static void title(const std::string& src);
+    static std::string trim(const std::string& src);
+    static std::string addHeaderAndFooterLines(const std::string& src);
+  };
+</div>
+  <div class= "comments">///////////////////////////////////////////////////////////////////</div>
+  <div class= "comments">// function writes return to console</div>
+
+  void putline();
+
+  <div class= "comments">///////////////////////////////////////////////////////////////////</div>
+  <div class= "comments">// DisplayLocation writes start address, ending address and size</div>
+  <div class= "comments">// to console</div>
+
+  std::string ToDecAddressString(size_t address);
+  std::string ToHexAddressString(size_t address);
+
+  template&lt;typename T&gt;
+  void DisplayLocation(T& t)
+  <button class="function-button" id="function-76-button" onclick = toggleVisibilityByID('function-76')>-</button><div id="function-76" class= "function">{
+    size_t address = reinterpret_cast&lt;size_t&gt;(&t);
+    size_t size = sizeof(t);
+
+    std::cout &lt;&lt; ToDecAddressString(address) 
+              &lt;&lt; " : " 
+              &lt;&lt; ToDecAddressString(address + size)
+              &lt;&lt; ", " &lt;&lt; size;
+  }</div>
+
+  <div class= "comments">///////////////////////////////////////////////////////////////////</div>
+  <div class= "comments">// Converter converts template type T to and from string</div>
+
+  template &lt;typename T&gt;
+  class Converter
+  <button class="class-button" id="class-91-button" onclick = toggleVisibilityByID('class-91')>-</button><div id="class-91" class= "class">{
+  public:
+    static std::string toString(const T& t);
+    static T toValue(const std::string& src);
+  };
+</div>
+  template &lt;typename T&gt;
+  std::string Converter&lt;T&gt;::toString(const T& t)
+  <button class="function-button" id="function-99-button" onclick = toggleVisibilityByID('function-99')>-</button><div id="function-99" class= "function">{
+    std::ostringstream out;
+    out &lt;&lt; t;
+    return out.str();
+  }</div>
+
+  template&lt;typename T&gt;
+  T Converter&lt;T&gt;::toValue(const std::string& src)
+  <button class="function-button" id="function-107-button" onclick = toggleVisibilityByID('function-107')>-</button><div id="function-107" class= "function">{
+    std::istringstream in(src);
+    T t;
+    in &gt;&gt; t;
+    return t;
+  }</div>
+}
+#endif
+    </pre>
+  </body>
+</html>

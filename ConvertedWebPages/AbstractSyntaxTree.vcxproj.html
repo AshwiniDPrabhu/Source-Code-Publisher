@@ -1,0 +1,189 @@
+<DOCTYPE !HTML>
+<html>
+  <head>
+    <Title>AbstractSyntaxTree.vcxproj</Title>
+    <style>
+      body {
+        padding:15px 40px;
+        font-family: Consolas;
+        font-size: 1.25em;
+        font-weight: normal;
+      }
+      </style>
+      <script src="../script.js"></script>
+  </head>
+
+  <body>
+<label><input type="checkbox" id="function-button" value="hidefuncs" checked="true" onclick="toggleVisibilityFunction('function')">Functions</label><br>
+<label><input type="checkbox" id="class-button" value="hideclass" checked="true" onclick="toggleVisibilityClass('class')">Classes</label><br>
+<label><input type="checkbox" id="comments-button" value="hidecomms" checked="true" onclick ="toggleVisibilityComments('comments')">Comments</label><br>
+    <h3>Dependencies: 
+      <a href=".html"></a>
+    </h3>    <pre>
+﻿&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http:<div class= "comments">//schemas.microsoft.com/developer/msbuild/2003"&gt;</div>
+  &lt;ItemGroup Label="ProjectConfigurations"&gt;
+    &lt;ProjectConfiguration Include="Debug|Win32"&gt;
+      &lt;Configuration&gt;Debug&lt;/Configuration&gt;
+      &lt;Platform&gt;Win32&lt;/Platform&gt;
+    &lt;/ProjectConfiguration&gt;
+    &lt;ProjectConfiguration Include="Release|Win32"&gt;
+      &lt;Configuration&gt;Release&lt;/Configuration&gt;
+      &lt;Platform&gt;Win32&lt;/Platform&gt;
+    &lt;/ProjectConfiguration&gt;
+    &lt;ProjectConfiguration Include="Debug|x64"&gt;
+      &lt;Configuration&gt;Debug&lt;/Configuration&gt;
+      &lt;Platform&gt;x64&lt;/Platform&gt;
+    &lt;/ProjectConfiguration&gt;
+    &lt;ProjectConfiguration Include="Release|x64"&gt;
+      &lt;Configuration&gt;Release&lt;/Configuration&gt;
+      &lt;Platform&gt;x64&lt;/Platform&gt;
+    &lt;/ProjectConfiguration&gt;
+  &lt;/ItemGroup&gt;
+  &lt;PropertyGroup Label="Globals"&gt;
+    &lt;ProjectGuid&gt;{53C7C53B-4D2F-4E71-9AF3-0B77DD0034B3}&lt;/ProjectGuid&gt;
+    &lt;Keyword&gt;Win32Proj&lt;/Keyword&gt;
+    &lt;RootNamespace&gt;AbstractSyntaxTree&lt;/RootNamespace&gt;
+    &lt;WindowsTargetPlatformVersion&gt;10.0.17763.0&lt;/WindowsTargetPlatformVersion&gt;
+  &lt;/PropertyGroup&gt;
+  &lt;Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" /&gt;
+  &lt;PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration"&gt;
+    &lt;ConfigurationType&gt;StaticLibrary&lt;/ConfigurationType&gt;
+    &lt;UseDebugLibraries&gt;true&lt;/UseDebugLibraries&gt;
+    &lt;PlatformToolset&gt;v141&lt;/PlatformToolset&gt;
+    &lt;CharacterSet&gt;Unicode&lt;/CharacterSet&gt;
+  &lt;/PropertyGroup&gt;
+  &lt;PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration"&gt;
+    &lt;ConfigurationType&gt;Application&lt;/ConfigurationType&gt;
+    &lt;UseDebugLibraries&gt;false&lt;/UseDebugLibraries&gt;
+    &lt;PlatformToolset&gt;v141&lt;/PlatformToolset&gt;
+    &lt;WholeProgramOptimization&gt;true&lt;/WholeProgramOptimization&gt;
+    &lt;CharacterSet&gt;Unicode&lt;/CharacterSet&gt;
+  &lt;/PropertyGroup&gt;
+  &lt;PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration"&gt;
+    &lt;ConfigurationType&gt;Application&lt;/ConfigurationType&gt;
+    &lt;UseDebugLibraries&gt;true&lt;/UseDebugLibraries&gt;
+    &lt;PlatformToolset&gt;v141&lt;/PlatformToolset&gt;
+    &lt;CharacterSet&gt;Unicode&lt;/CharacterSet&gt;
+  &lt;/PropertyGroup&gt;
+  &lt;PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration"&gt;
+    &lt;ConfigurationType&gt;Application&lt;/ConfigurationType&gt;
+    &lt;UseDebugLibraries&gt;false&lt;/UseDebugLibraries&gt;
+    &lt;PlatformToolset&gt;v141&lt;/PlatformToolset&gt;
+    &lt;WholeProgramOptimization&gt;true&lt;/WholeProgramOptimization&gt;
+    &lt;CharacterSet&gt;Unicode&lt;/CharacterSet&gt;
+  &lt;/PropertyGroup&gt;
+  &lt;Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" /&gt;
+  &lt;ImportGroup Label="ExtensionSettings"&gt;
+  &lt;/ImportGroup&gt;
+  &lt;ImportGroup Label="Shared"&gt;
+  &lt;/ImportGroup&gt;
+  &lt;ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"&gt;
+    &lt;Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" /&gt;
+  &lt;/ImportGroup&gt;
+  &lt;ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"&gt;
+    &lt;Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" /&gt;
+  &lt;/ImportGroup&gt;
+  &lt;ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"&gt;
+    &lt;Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" /&gt;
+  &lt;/ImportGroup&gt;
+  &lt;ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'"&gt;
+    &lt;Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" /&gt;
+  &lt;/ImportGroup&gt;
+  &lt;PropertyGroup Label="UserMacros" /&gt;
+  &lt;PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"&gt;
+    &lt;LinkIncremental&gt;true&lt;/LinkIncremental&gt;
+  &lt;/PropertyGroup&gt;
+  &lt;PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"&gt;
+    &lt;LinkIncremental&gt;true&lt;/LinkIncremental&gt;
+  &lt;/PropertyGroup&gt;
+  &lt;PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"&gt;
+    &lt;LinkIncremental&gt;false&lt;/LinkIncremental&gt;
+  &lt;/PropertyGroup&gt;
+  &lt;PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'"&gt;
+    &lt;LinkIncremental&gt;false&lt;/LinkIncremental&gt;
+  &lt;/PropertyGroup&gt;
+  &lt;ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"&gt;
+    &lt;ClCompile&gt;
+      &lt;PrecompiledHeader&gt;NotUsing&lt;/PrecompiledHeader&gt;
+      &lt;WarningLevel&gt;Level3&lt;/WarningLevel&gt;
+      &lt;Optimization&gt;Disabled&lt;/Optimization&gt;
+      &lt;PreprocessorDefinitions&gt;WIN32;_DEBUG;_CONSOLE;TEST_ABSTRSYNTREE;%(PreprocessorDefinitions)&lt;/PreprocessorDefinitions&gt;
+      &lt;SDLCheck&gt;true&lt;/SDLCheck&gt;
+      &lt;BrowseInformation&gt;true&lt;/BrowseInformation&gt;
+    &lt;/ClCompile&gt;
+    &lt;Link&gt;
+      &lt;SubSystem&gt;Console&lt;/SubSystem&gt;
+      &lt;GenerateDebugInformation&gt;true&lt;/GenerateDebugInformation&gt;
+    &lt;/Link&gt;
+    &lt;Bscmake&gt;
+      &lt;PreserveSbr&gt;true&lt;/PreserveSbr&gt;
+    &lt;/Bscmake&gt;
+  &lt;/ItemDefinitionGroup&gt;
+  &lt;ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"&gt;
+    &lt;ClCompile&gt;
+      &lt;PrecompiledHeader&gt;
+      &lt;/PrecompiledHeader&gt;
+      &lt;WarningLevel&gt;Level3&lt;/WarningLevel&gt;
+      &lt;Optimization&gt;Disabled&lt;/Optimization&gt;
+      &lt;PreprocessorDefinitions&gt;_DEBUG;_CONSOLE;TEST_ABSTRSYNTREE;%(PreprocessorDefinitions)&lt;/PreprocessorDefinitions&gt;
+      &lt;SDLCheck&gt;true&lt;/SDLCheck&gt;
+    &lt;/ClCompile&gt;
+    &lt;Link&gt;
+      &lt;SubSystem&gt;Console&lt;/SubSystem&gt;
+      &lt;GenerateDebugInformation&gt;true&lt;/GenerateDebugInformation&gt;
+    &lt;/Link&gt;
+  &lt;/ItemDefinitionGroup&gt;
+  &lt;ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"&gt;
+    &lt;ClCompile&gt;
+      &lt;WarningLevel&gt;Level3&lt;/WarningLevel&gt;
+      &lt;PrecompiledHeader&gt;
+      &lt;/PrecompiledHeader&gt;
+      &lt;Optimization&gt;MaxSpeed&lt;/Optimization&gt;
+      &lt;FunctionLevelLinking&gt;true&lt;/FunctionLevelLinking&gt;
+      &lt;IntrinsicFunctions&gt;true&lt;/IntrinsicFunctions&gt;
+      &lt;PreprocessorDefinitions&gt;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)&lt;/PreprocessorDefinitions&gt;
+      &lt;SDLCheck&gt;true&lt;/SDLCheck&gt;
+    &lt;/ClCompile&gt;
+    &lt;Link&gt;
+      &lt;SubSystem&gt;Console&lt;/SubSystem&gt;
+      &lt;EnableCOMDATFolding&gt;true&lt;/EnableCOMDATFolding&gt;
+      &lt;OptimizeReferences&gt;true&lt;/OptimizeReferences&gt;
+      &lt;GenerateDebugInformation&gt;true&lt;/GenerateDebugInformation&gt;
+    &lt;/Link&gt;
+  &lt;/ItemDefinitionGroup&gt;
+  &lt;ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'"&gt;
+    &lt;ClCompile&gt;
+      &lt;WarningLevel&gt;Level3&lt;/WarningLevel&gt;
+      &lt;PrecompiledHeader&gt;
+      &lt;/PrecompiledHeader&gt;
+      &lt;Optimization&gt;MaxSpeed&lt;/Optimization&gt;
+      &lt;FunctionLevelLinking&gt;true&lt;/FunctionLevelLinking&gt;
+      &lt;IntrinsicFunctions&gt;true&lt;/IntrinsicFunctions&gt;
+      &lt;PreprocessorDefinitions&gt;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)&lt;/PreprocessorDefinitions&gt;
+      &lt;SDLCheck&gt;true&lt;/SDLCheck&gt;
+    &lt;/ClCompile&gt;
+    &lt;Link&gt;
+      &lt;SubSystem&gt;Console&lt;/SubSystem&gt;
+      &lt;EnableCOMDATFolding&gt;true&lt;/EnableCOMDATFolding&gt;
+      &lt;OptimizeReferences&gt;true&lt;/OptimizeReferences&gt;
+      &lt;GenerateDebugInformation&gt;true&lt;/GenerateDebugInformation&gt;
+    &lt;/Link&gt;
+  &lt;/ItemDefinitionGroup&gt;
+  &lt;ItemGroup&gt;
+    &lt;ClInclude Include="..\Logger\Logger.h" /&gt;
+    &lt;ClInclude Include="..\Utilities\Utilities.h" /&gt;
+    &lt;ClInclude Include="AbstrSynTree.h" /&gt;
+  &lt;/ItemGroup&gt;
+  &lt;ItemGroup&gt;
+    &lt;ClCompile Include="..\Logger\Logger.cpp" /&gt;
+    &lt;ClCompile Include="..\Utilities\Utilities.cpp" /&gt;
+    &lt;ClCompile Include="AbstrSynTree.cpp" /&gt;
+  &lt;/ItemGroup&gt;
+  &lt;Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" /&gt;
+  &lt;ImportGroup Label="ExtensionTargets"&gt;
+  &lt;/ImportGroup&gt;
+&lt;/Project&gt;
+    </pre>
+  </body>
+</html>
